@@ -1,544 +1,321 @@
-Africa Opportunity Hub 🌍
-Connecting young Africans to opportunities that help them learn, grow, and build their future.
-Africa Opportunity Hub is a full-stack web application designed to make it easier for young Africans to discover opportunities across the continent and beyond.
+# Africa Opportunity Hub
 
-The platform aims to bring together job opportunities, scholarships, internships, fellowships, and grants in one accessible place, helping users discover relevant opportunities without having to search across multiple websites and platforms.
+> **Built with purpose. Designed for opportunity. Inspired by Africa.**
 
-Built with React, TypeScript, Java, and Spring Boot, the project focuses on creating a practical, maintainable, and scalable platform while applying modern software engineering principles.
+Africa Opportunity Hub is a platform designed to help young Africans discover opportunities across the continent and beyond. It brings jobs, scholarships, internships, fellowships, and grants into one place, making it easier for people to find opportunities that support their education, careers, and personal development.
 
-🎯 Project Objectives
-Make opportunities more accessible to young Africans.
-Provide a centralized platform for discovering career, education, and development opportunities.
-Allow users to search, filter, and explore opportunities based on their interests and eligibility.
-Enable users to create accounts and save opportunities for future reference.
-Introduce a contributor workflow for submitting opportunities for review.
-Provide administrators with tools to manage and publish opportunities.
-✨ Features
-Frontend
-The React frontend currently includes:
+This project is being developed as both a useful platform and a practical way to demonstrate full-stack software engineering, backend development, API design, database design, and system architecture.
 
-Home Page: Introduction to the platform, featured opportunities, and opportunity categories.
-Explore Opportunities: Browse available opportunities.
-Search: Search opportunities by title, organization, or keywords.
-Filtering: Filter opportunities by category and eligibility scope.
-Sorting: Sort opportunities by application deadline or title.
-Pagination: Navigate through opportunity listings.
-Opportunity Details: View detailed information about individual opportunities.
-Responsive Navigation: Navigation that adapts to different screen sizes.
-Authentication UI: Login and registration pages with form validation and password visibility controls.
-Client-side Routing: React Router navigation with automatic scroll-to-top behaviour.
-The frontend currently uses illustrative opportunity data. Integration with the backend is part of the ongoing development.
-Backend
-The Java backend includes the foundations for:
+**Status:** Active development — features and architecture are evolving.
 
-Authentication: Authentication endpoints and supporting authentication services.
-JWT Security: JWT service and authentication filter.
-User Management: User model, repository and user details service.
-Category Management: Category controller, service and repository.
-Opportunity Management: Opportunity controller, service and repository.
-Security Configuration: Spring Security configuration and CSRF handling.
-Data Transfer Objects: Dedicated request and response DTOs.
-Backend functionality is being developed incrementally, with end-to-end integration and runtime verification still in progress.
-Planned Features
-Complete frontend-backend integration.
-User profiles and account management.
-Save and unsave opportunities.
-Personal saved-opportunities dashboard.
-Contributor access and opportunity submissions.
-Administrative review and approval of submissions.
-Opportunity publishing, editing, archiving, and rejection.
-Backend validation and duplicate opportunity detection.
-🛠️ Technology Stack
-Frontend
-React
-TypeScript
-Vite
-React Router
-Lucide React
-CSS
-Backend
-Java
-Spring Boot
-Spring Security
-JSON Web Tokens (JWT)
-RESTful APIs
-Maven
-Database
-MySQL
-Development Tools
-IntelliJ IDEA
-Visual Studio Code
-MySQL Workbench
-Git and GitHub
-🏗️ Application Architecture
-Africa Opportunity Hub is structured as a full-stack application with a React-based frontend and a Java Spring Boot backend.
+---
 
-Frontend Architecture
-The frontend follows a component-based architecture, with separation of responsibilities across:
+## Table of Contents
 
-Components: Reusable UI elements.
-Layouts: Shared application layouts and navigation.
-Pages: Individual application screens.
-Services: API and application service logic.
-Data: Opportunity data used during frontend development.
-Types: TypeScript interfaces and type definitions.
-Styles: Shared and component-specific styling.
-Backend Architecture
-The backend follows a layered architecture to separate application responsibilities:
+- [Project Objectives](#project-objectives)
+- [Opportunity Categories](#opportunity-categories)
+- [Technology Stack](#technology-stack)
+- [Architecture](#architecture)
+- [Current Features](#current-features)
+- [Development Progress](#development-progress)
+- [Planned Features](#planned-features)
+- [User Roles](#user-roles)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Roadmap](#roadmap)
+- [Project Vision](#project-vision)
 
-Controller: Handles incoming HTTP requests and responses.
-Service: Contains business logic and application operations.
-Repository: Handles database access and persistence.
-Model: Represents application domain entities.
-DTO: Defines request and response data structures.
-Security: Handles authentication and JWT-related functionality.
-Config: Contains application and security configuration.
-The backend exposes REST endpoints designed to communicate with the frontend using JSON.
+---
 
-Core Domain Entities
-The current backend domain model includes:
+## Project Objectives
 
-User: Represents a registered platform user.
-Category: Represents an opportunity category.
-Opportunity: Represents an opportunity published on the platform.
-Additional entities, including saved opportunities and opportunity submissions, are planned for future development.
+The main objectives of Africa Opportunity Hub are to:
 
-📂 Project Structure
-The repository contains both frontend and backend projects under one root directory.
+- Create a centralized platform where young Africans can discover relevant opportunities.
+- Make opportunities easier to search, explore, and access.
+- Provide a simple and intuitive user experience.
+- Allow approved contributors to submit opportunities for review.
+- Give administrators tools to review and manage published opportunities.
+- Build a maintainable backend with clear separation of responsibilities.
+- Apply practical software engineering concepts, including REST API design, relational database design, validation, authentication, and testing.
 
+## Opportunity Categories
 
-text
-AfricaOpportunityHubProject/
+The platform focuses on five main categories:
+
+1. **Jobs** — Employment opportunities across different industries and experience levels.
+2. **Scholarships** — Funding opportunities for education and academic development.
+3. **Internships** — Opportunities to gain practical experience and develop professional skills.
+4. **Fellowships** — Structured programmes for professional, academic, and leadership development.
+5. **Grants** — Funding opportunities for individuals, organizations, and initiatives.
+
+## Technology Stack
+
+The project is being developed with the following technologies.
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- React Router
+- Lucide React
+- CSS
+
+### Backend
+
+- Java
+- Spring Boot (planned as the backend framework)
+- RESTful APIs
+- Maven
+
+### Database
+
+- MySQL
+
+### Development Tools
+
+- IntelliJ IDEA
+- Visual Studio Code
+- MySQL Workbench
+- Git and GitHub
+
+> The technology stack and implementation details may evolve as development progresses.
+
+## Architecture
+
+The intended backend architecture is a **modular monolith** with a layered structure.
+
+The goal is to keep the application organized by responsibility while allowing the project to remain straightforward to develop, test, and maintain.
+
+The main backend layers are:
+
+- **Controller:** Handles incoming HTTP requests and returns API responses.
+- **Service:** Contains business logic and coordinates application operations.
+- **Repository:** Handles database access.
+- **Model:** Represents the main domain entities.
+- **DTO:** Defines the data transferred between the API and its clients.
+- **Config:** Holds application configuration.
+
+The project uses a relational database to manage users, categories, opportunities, submissions, and saved opportunities.
+
+## Current Features
+
+### Frontend
+
+The following frontend functionality has been implemented using sample opportunity data:
+
+- Landing page with an introduction to the platform.
+- Opportunity categories displayed on the home page.
+- Featured opportunities.
+- Explore opportunities page.
+- Search opportunities by keyword.
+- Filter opportunities by category and eligibility.
+- Sort opportunities.
+- Paginate opportunity results.
+- Individual opportunity details pages.
+- Navigation between the home, explore, login, and registration pages.
+- Responsive navigation for smaller screens.
+- Login and registration user interfaces.
+- Basic client-side form validation.
+- Password visibility controls.
+- Not-found state for invalid opportunity details.
+- Automatic scroll-to-top when navigating between pages.
+
+### Backend
+
+Backend development is underway. The initial work has included:
+
+- Java backend project setup.
+- MySQL database connection and testing.
+- Category domain and data-access implementation.
+- Initial API server and endpoint testing.
+- Initial opportunity data and database work.
+
+The backend is still being developed and will be integrated with the frontend as the API functionality becomes available.
+
+## Development Progress
+
+| Area | Progress |
+|---|---|
+| Frontend project setup | Completed |
+| Shared layout and navigation | Completed |
+| Home page | Completed |
+| Explore opportunities page | Completed |
+| Search, filtering, sorting, and pagination UI | Completed |
+| Opportunity details page | Completed |
+| Login and registration UI | Completed |
+| Client-side form validation | Completed |
+| Database setup and connection | Initial setup completed |
+| Category backend functionality | Implemented and tested |
+| Opportunity backend functionality | In progress |
+| Spring Boot setup and backend structure | In progress |
+| Authentication and authorization | Planned |
+| Frontend and backend integration | Planned |
+| Saved opportunities | Planned |
+| Contributor submission workflow | Planned |
+| Admin review and publishing workflow | Planned |
+| Automated tests and deployment | Planned |
+
+## Planned Features
+
+The following capabilities are part of the intended product:
+
+- User registration, login, and logout.
+- Secure authentication and authorization.
+- User profiles.
+- Save and unsave opportunities.
+- View a personal list of saved opportunities.
+- Submit opportunities for review (approved contributors only).
+- Admin review of submitted opportunities.
+- Publish, reject, edit, and archive opportunities.
+- Validation of opportunity details and application links.
+- Duplicate opportunity checks.
+- Filtering and sorting supported by backend API endpoints.
+- Pagination supported by backend API endpoints.
+
+## User Roles
+
+The platform is intended to support three roles. Each user will have one role at a time.
+
+### 1. User
+
+A standard registered user will be able to:
+
+- Browse and search opportunities.
+- Filter and sort opportunities.
+- View opportunity details.
+- Save and unsave opportunities.
+- View saved opportunities.
+
+### 2. Contributor
+
+A contributor will have all standard user capabilities, with the additional ability to:
+
+- Submit new opportunities for review.
+- Provide relevant opportunity details and source links.
+- Track the status of submitted opportunities (planned).
+
+### 3. Admin
+
+An administrator will be able to:
+
+- Browse and manage opportunities.
+- Review submitted opportunities.
+- Create and edit opportunities.
+- Publish, reject, and archive opportunities.
+- Promote standard users to contributors.
+- Perform administrative actions required to maintain the platform.
+
+## Project Structure
+
+The frontend and backend are currently developed as separate projects. The intended GitHub repository may bring them together under one repository.
+
+A possible structure is:
+
+```text
+africa-opportunity-hub/
 │
-├── README.md
-├── .gitignore
-│
-├── be-africa-opportunity-hub/
-│   ├── .mvn/
+├── frontend/
+│   ├── public/
 │   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/africaopportunityhub/
-│   │   │   │   ├── config/
-│   │   │   │   ├── controller/
-│   │   │   │   ├── dto/
-│   │   │   │   ├── model/
-│   │   │   │   ├── repository/
-│   │   │   │   ├── security/
-│   │   │   │   └── service/
-│   │   │   └── resources/
-│   │   └── test/
-│   ├── mvnw
-│   ├── mvnw.cmd
+│   │   ├── components/
+│   │   ├── data/
+│   │   ├── pages/
+│   │   ├── styles/
+│   │   └── types/
+│   └── package.json
+│
+├── backend/
+│   ├── src/
+│   │   └── main/
+│   │       └── java/
 │   └── pom.xml
 │
-└── fe-africa-opportunity-hub/
-    ├── public/
-    ├── src/
-    │   ├── assets/
-    │   ├── components/
-    │   │   ├── layouts/
-    │   │   └── opportunities/
-    │   ├── data/
-    │   ├── pages/
-    │   ├── services/
-    │   ├── styles/
-    │   └── types/
-    ├── package.json
-    └── vite.config.ts
-📊 Development Progress
-The project is being developed incrementally, with frontend and backend implementation progressing in parallel.
-
-
-Area	Status
-Frontend project setup	Completed
-Design system and shared layouts	Completed
-Navigation and routing	Completed
-Home page	Completed
-Explore opportunities	Completed
-Search, filtering and sorting	Implemented
-Pagination	Implemented
-Opportunity details	Implemented
-Login and registration UI	Implemented
-Backend project setup	Completed
-Backend category components	Implemented
-Backend opportunity components	Implemented
-Authentication and JWT infrastructure	Implemented; runtime verification pending
-Frontend-backend integration	In progress
-Saved opportunities	Planned
-Contributor workflows	Planned
-Admin workflows	Planned
-End-to-end testing	Planned
-Deployment	Planned
-🚀 Getting Started
-Prerequisites
-Ensure you have the following installed:
-
-Node.js and npm
-Java Development Kit (JDK)
-MySQL Server
-Git
-The backend includes the Maven Wrapper, so a separate Maven installation is not required.
-
-1. Clone the Repository
-
-bash
-git clone <repository-url>
-cd AfricaOpportunityHubProject
-2. Frontend Setup
-Navigate to the frontend directory:
-
-
-bash
-cd fe-africa-opportunity-hub
-Install dependencies:
-
-
-bash
-npm install
-Start the development server:
-
-
-bash
-npm run dev
-The frontend should be available at:
-
-
-text
-http://localhost:5173
-3. Backend Setup
-Navigate to the backend directory from the repository root:
-
-
-bash
-cd be-africa-opportunity-hub
-Configure the required database connection properties and application secrets using local environment variables or your IDE's run configuration.
-
-Ensure MySQL is running and the configured database is available.
-
-On Windows, start the Spring Boot application using the Maven Wrapper:
-
-
-powershell
-.\mvnw.cmd spring-boot:run
-On macOS or Linux:
-
-
-bash
-./mvnw spring-boot:run
-Note: The backend requires valid local database configuration before it can start successfully. Actual credentials and application secrets should never be committed to the repository.
-🔐 Planned User Roles
-The intended platform will support three user roles:
-
-1. User
-Browse and explore opportunities.
-Search and filter opportunities.
-Save and manage saved opportunities.
-2. Contributor
-Access all User capabilities.
-Submit opportunities for administrative review.
-3. Admin
-Manage opportunities.
-Review contributor submissions.
-Approve, reject, publish, and archive opportunities.
-Manage platform users and contributor access.
-Role-based permissions and the associated workflows are part of the planned platform functionality.
-🗺️ Roadmap
-The development roadmap includes:
-
-Complete the frontend experience.
-Complete backend API development.
-Finalise secure user registration and authentication.
-Integrate the frontend with backend APIs.
-Implement saved opportunities.
-Develop contributor submission workflows.
-Develop administrative management capabilities.
-Introduce automated testing and validation.
-Deploy the application.
-💡 Project Vision
-Africa Opportunity Hub is built around a simple idea: access to opportunities should not depend on how well-connected someone is or how many websites they know to search.
-
-By bringing opportunities together in one accessible platform, the goal is to help more young Africans discover possibilities, take meaningful action, and build their futures.
-
-Built with purpose. Designed for opportunity. Inspired by Africa.
-
-Africa Opportunity Hub is an actively developed full-stack project.
-
-You can copy the Markdown above into a file named README.md in your project's root directory.
-
-Small recommendation: This structure is suitable for a GitHub repository README and clearly distinguishes implemented functionality from planned functionality, which is especially important for an actively developed project.
-
-
-But you have not created it with the markdown structue, if i copy this it will be normal text.
-You have not added the # and ##
-
-You're right. The previous version was visually formatted, but what you need is the actual raw Markdown syntax, including literal #, ##, -, |, and triple backticks.
-
-Below is the Markdown source. Copy it into a file named README.md, not a .txt file.
-
-Writing
-
-
-Africa Opportunity Hub 🌍
-Connecting young Africans to opportunities that help them learn, grow, and build their future.
-Africa Opportunity Hub is a full-stack web application designed to make it easier for young Africans to discover opportunities across the continent and beyond.
-
-The platform aims to bring together job opportunities, scholarships, internships, fellowships, and grants in one accessible place, helping users discover relevant opportunities without having to search across multiple websites and platforms.
-
-Built with React, TypeScript, Java, and Spring Boot, the project focuses on creating a practical, maintainable, and scalable platform while applying modern software engineering principles.
-
-🎯 Project Objectives
-Make opportunities more accessible to young Africans.
-Provide a centralized platform for discovering career, education, and development opportunities.
-Allow users to search, filter, and explore opportunities based on their interests and eligibility.
-Enable users to create accounts and save opportunities for future reference.
-Introduce a contributor workflow for submitting opportunities for review.
-Provide administrators with tools to manage and publish opportunities.
-✨ Features
-Frontend
-The React frontend currently includes:
-
-Home Page: Introduction to the platform, featured opportunities, and opportunity categories.
-Explore Opportunities: Browse available opportunities.
-Search: Search opportunities by title, organization, or keywords.
-Filtering: Filter opportunities by category and eligibility scope.
-Sorting: Sort opportunities by application deadline or title.
-Pagination: Navigate through opportunity listings.
-Opportunity Details: View detailed information about individual opportunities.
-Responsive Navigation: Navigation that adapts to different screen sizes.
-Authentication UI: Login and registration pages with form validation and password visibility controls.
-Client-side Routing: React Router navigation with automatic scroll-to-top behaviour.
-The frontend currently uses illustrative opportunity data. Integration with the backend is part of the ongoing development.
-Backend
-The Java backend includes the foundations for:
-
-Authentication: Authentication endpoints and supporting authentication services.
-JWT Security: JWT service and authentication filter.
-User Management: User model, repository and user details service.
-Category Management: Category controller, service and repository.
-Opportunity Management: Opportunity controller, service and repository.
-Security Configuration: Spring Security configuration and CSRF handling.
-Data Transfer Objects: Dedicated request and response DTOs.
-Backend functionality is being developed incrementally, with end-to-end integration and runtime verification still in progress.
-Planned Features
-Complete frontend-backend integration.
-User profiles and account management.
-Save and unsave opportunities.
-Personal saved-opportunities dashboard.
-Contributor access and opportunity submissions.
-Administrative review and approval of submissions.
-Opportunity publishing, editing, archiving, and rejection.
-Backend validation and duplicate opportunity detection.
-🛠️ Technology Stack
-Frontend
-React
-TypeScript
-Vite
-React Router
-Lucide React
-CSS
-Backend
-Java
-Spring Boot
-Spring Security
-JSON Web Tokens (JWT)
-RESTful APIs
-Maven
-Database
-MySQL
-Development Tools
-IntelliJ IDEA
-Visual Studio Code
-MySQL Workbench
-Git and GitHub
-🏗️ Application Architecture
-Africa Opportunity Hub is structured as a full-stack application with a React-based frontend and a Java Spring Boot backend.
-
-Frontend Architecture
-The frontend follows a component-based architecture, with separation of responsibilities across:
-
-Components: Reusable UI elements.
-Layouts: Shared application layouts and navigation.
-Pages: Individual application screens.
-Services: API and application service logic.
-Data: Opportunity data used during frontend development.
-Types: TypeScript interfaces and type definitions.
-Styles: Shared and component-specific styling.
-Backend Architecture
-The backend follows a layered architecture to separate application responsibilities:
-
-Controller: Handles incoming HTTP requests and responses.
-Service: Contains business logic and application operations.
-Repository: Handles database access and persistence.
-Model: Represents application domain entities.
-DTO: Defines request and response data structures.
-Security: Handles authentication and JWT-related functionality.
-Config: Contains application and security configuration.
-The backend exposes REST endpoints designed to communicate with the frontend using JSON.
-
-Core Domain Entities
-The current backend domain model includes:
-
-User: Represents a registered platform user.
-Category: Represents an opportunity category.
-Opportunity: Represents an opportunity published on the platform.
-Additional entities, including saved opportunities and opportunity submissions, are planned for future development.
-
-📂 Project Structure
-The repository contains both frontend and backend projects under one root directory.
-
-
-text
-AfricaOpportunityHubProject/
-│
-├── README.md
 ├── .gitignore
-│
-├── be-africa-opportunity-hub/
-│   ├── .mvn/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/africaopportunityhub/
-│   │   │   │   ├── config/
-│   │   │   │   ├── controller/
-│   │   │   │   ├── dto/
-│   │   │   │   ├── model/
-│   │   │   │   ├── repository/
-│   │   │   │   ├── security/
-│   │   │   │   └── service/
-│   │   │   └── resources/
-│   │   └── test/
-│   ├── mvnw
-│   ├── mvnw.cmd
-│   └── pom.xml
-│
-└── fe-africa-opportunity-hub/
-    ├── public/
-    ├── src/
-    │   ├── assets/
-    │   ├── components/
-    │   │   ├── layouts/
-    │   │   └── opportunities/
-    │   ├── data/
-    │   ├── pages/
-    │   ├── services/
-    │   ├── styles/
-    │   └── types/
-    ├── package.json
-    └── vite.config.ts
-📊 Development Progress
-The project is being developed incrementally, with frontend and backend implementation progressing in parallel.
+└── README.md
+```
 
+This is an illustrative structure. The actual folder names may differ depending on how the projects are arranged in the repository.
 
-Area	Status
-Frontend project setup	Completed
-Design system and shared layouts	Completed
-Navigation and routing	Completed
-Home page	Completed
-Explore opportunities	Completed
-Search, filtering and sorting	Implemented
-Pagination	Implemented
-Opportunity details	Implemented
-Login and registration UI	Implemented
-Backend project setup	Completed
-Backend category components	Implemented
-Backend opportunity components	Implemented
-Authentication and JWT infrastructure	Implemented; runtime verification pending
-Frontend-backend integration	In progress
-Saved opportunities	Planned
-Contributor workflows	Planned
-Admin workflows	Planned
-End-to-end testing	Planned
-Deployment	Planned
-🚀 Getting Started
-Prerequisites
-Ensure you have the following installed:
+## Getting Started
 
-Node.js and npm
-Java Development Kit (JDK)
-MySQL Server
-Git
-The backend includes the Maven Wrapper, so a separate Maven installation is not required.
+### Prerequisites
 
-1. Clone the Repository
+To work on the project locally, you will need:
 
-bash
-git clone <repository-url>
-cd AfricaOpportunityHubProject
-2. Frontend Setup
-Navigate to the frontend directory:
+- Node.js and npm
+- Java Development Kit (JDK)
+- Maven
+- MySQL
+- Git
 
+### Frontend Setup
 
-bash
-cd fe-africa-opportunity-hub
-Install dependencies:
+1. Clone the repository:
 
+   ```bash
+   git clone <repository-url>
+   ```
 
-bash
-npm install
-Start the development server:
+2. Navigate to the frontend directory:
 
+   ```bash
+   cd frontend
+   ```
 
-bash
-npm run dev
-The frontend should be available at:
+3. Install dependencies:
 
+   ```bash
+   npm install
+   ```
 
-text
-http://localhost:5173
-3. Backend Setup
-Navigate to the backend directory from the repository root:
+4. Start the development server:
 
+   ```bash
+   npm run dev
+   ```
 
-bash
-cd be-africa-opportunity-hub
-Configure the required database connection properties and application secrets using local environment variables or your IDE's run configuration.
+5. Open the local URL displayed in your terminal.
 
-Ensure MySQL is running and the configured database is available.
+### Backend Setup
 
-On Windows, start the Spring Boot application using the Maven Wrapper:
+Backend setup instructions will be added once the backend project structure and application configuration are finalized.
 
+The backend requires a configured MySQL database and the appropriate local database connection settings.
 
-powershell
-.\mvnw.cmd spring-boot:run
-On macOS or Linux:
+**Important:** Do not commit database passwords, API keys, or other secrets to GitHub. Use environment variables or a local configuration file excluded from version control.
 
+## Roadmap
 
-bash
-./mvnw spring-boot:run
-Note: The backend requires valid local database configuration before it can start successfully. Actual credentials and application secrets should never be committed to the repository.
-🔐 Planned User Roles
-The intended platform will support three user roles:
+The development roadmap is organized into the following stages:
 
-1. User
-Browse and explore opportunities.
-Search and filter opportunities.
-Save and manage saved opportunities.
-2. Contributor
-Access all User capabilities.
-Submit opportunities for administrative review.
-3. Admin
-Manage opportunities.
-Review contributor submissions.
-Approve, reject, publish, and archive opportunities.
-Manage platform users and contributor access.
-Role-based permissions and the associated workflows are part of the planned platform functionality.
-🗺️ Roadmap
-The development roadmap includes:
+- [x] Set up the React and TypeScript frontend.
+- [x] Build the shared layout and navigation.
+- [x] Implement the home and explore pages.
+- [x] Implement opportunity details pages.
+- [x] Add search, filtering, sorting, and pagination interfaces.
+- [x] Build login and registration interfaces.
+- [x] Set up the initial MySQL database.
+- [x] Implement and test initial category backend functionality.
+- [ ] Complete the opportunity backend functionality.
+- [ ] Finalize the Spring Boot backend structure.
+- [ ] Implement authentication and authorization.
+- [ ] Connect the frontend to the backend APIs.
+- [ ] Implement saved opportunities.
+- [ ] Implement contributor opportunity submissions.
+- [ ] Implement administrator review and publishing workflows.
+- [ ] Add comprehensive backend and frontend tests.
+- [ ] Deploy the application.
 
-Complete the frontend experience.
-Complete backend API development.
-Finalise secure user registration and authentication.
-Integrate the frontend with backend APIs.
-Implement saved opportunities.
-Develop contributor submission workflows.
-Develop administrative management capabilities.
-Introduce automated testing and validation.
-Deploy the application.
-💡 Project Vision
-Africa Opportunity Hub is built around a simple idea: access to opportunities should not depend on how well-connected someone is or how many websites they know to search.
+## Project Vision
 
-By bringing opportunities together in one accessible platform, the goal is to help more young Africans discover possibilities, take meaningful action, and build their futures.
+Africa Opportunity Hub aims to make opportunity discovery simpler and more accessible for young Africans.
 
-Built with purpose. Designed for opportunity. Inspired by Africa.
+Beyond the technical implementation, the broader vision is to build a platform that helps people discover possibilities, access resources, and take meaningful steps toward their goals.
 
-Africa Opportunity Hub is an actively developed full-stack project.
+The project is being built incrementally, with an emphasis on clean code, maintainable architecture, practical engineering decisions, and a useful end product.
+
+---
+
+**Africa Opportunity Hub — Built with purpose. Designed for opportunity. Inspired by Africa.**
