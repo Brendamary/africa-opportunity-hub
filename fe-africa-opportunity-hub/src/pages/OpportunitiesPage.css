@@ -1,0 +1,630 @@
+
+.opportunities-page {
+  background: var(--color-background);
+  min-height: 70vh;
+  padding-bottom: var(--space-16);
+}
+
+
+.opportunities-page__intro {
+  background: linear-gradient(
+    135deg,
+    #f0fdf4 0%,
+    #ffffff 65%,
+    #fefce8 100%
+  );
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  margin: 32px auto 0;
+  max-width: 1200px;
+  padding: 48px 32px;
+}
+
+.opportunities-page__intro > .container {
+  width: 100%;
+}
+
+.opportunities-page__eyebrow {
+  align-items: center;
+  color: var(--color-primary);
+  display: flex;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  gap: var(--space-2);
+  letter-spacing: 0.09em;
+  margin-bottom: var(--space-4);
+}
+
+.opportunities-page__intro h1 {
+  color: var(--color-text);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-4);
+}
+
+.opportunities-page__intro p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 650px;
+}
+
+.opportunities-page__content {
+  padding-top: var(--space-8);
+}
+
+.opportunities-toolbar {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+}
+
+.opportunities-search {
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-secondary);
+  display: flex;
+  flex: 1;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: 0 var(--space-4);
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.opportunities-search:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgb(20 83 45 / 10%);
+}
+
+.opportunities-search input {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--color-text);
+  flex: 1;
+  min-width: 0;
+  outline: none;
+  padding: var(--space-4) 0;
+  width: 100%;
+}
+
+.opportunities-search input:focus {
+  box-shadow: none;
+}
+
+.opportunities-search input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.opportunities-search__clear {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-1);
+}
+
+.opportunities-search__clear:hover {
+  color: var(--color-text);
+}
+
+.opportunities-sort {
+  align-items: center;
+  display: flex;
+  gap: var(--space-3);
+  white-space: nowrap;
+}
+
+.opportunities-sort label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.opportunities-sort select,
+.opportunities-filter-group select {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--font-size-sm);
+  min-width: 0;
+  padding: var(--space-3);
+}
+
+.opportunities-sort select:focus,
+.opportunities-filter-group select:focus {
+  border-color: var(--color-primary);
+  outline: 2px solid rgb(20 83 45 / 15%);
+}
+
+.opportunities-results-layout {
+  align-items: start;
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 245px minmax(0, 1fr);
+}
+
+.opportunities-filters {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.opportunities-filters__heading,
+.opportunities-filters__heading > div {
+  align-items: center;
+  display: flex;
+}
+
+.opportunities-filters__heading {
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.opportunities-filters__heading > div {
+  color: var(--color-primary);
+  gap: var(--space-2);
+}
+
+.opportunities-filters__heading h2 {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.opportunities-filters__heading button {
+  background: transparent;
+  border: 0;
+  color: var(--color-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.opportunities-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.opportunities-filter-group label {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.opportunities-filter-group select {
+  width: 100%;
+}
+
+.opportunities-filters__note {
+  background: #f0fdf4;
+  border-radius: var(--radius-md);
+  margin-top: var(--space-6);
+  padding: var(--space-3);
+}
+
+.opportunities-filters__note p {
+  color: #166534;
+  font-size: var(--font-size-xs);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.opportunities-results {
+  min-width: 0;
+}
+
+.opportunities-results__heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.opportunities-results__heading h2 {
+  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--space-1);
+}
+
+.opportunities-results__heading p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+.opportunities-grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.opportunities-empty {
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+}
+
+.opportunities-empty__icon {
+  align-items: center;
+  background: var(--color-muted);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  display: flex;
+  height: 64px;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+  width: 64px;
+}
+
+.opportunities-empty h3 {
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  margin: 0 0 var(--space-2);
+}
+
+.opportunities-empty p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  margin: 0 0 var(--space-5);
+  max-width: 430px;
+}
+
+.opportunities-pagination {
+  align-items: center;
+  display: flex;
+  gap: var(--space-3);
+  justify-content: space-between;
+  margin-top: var(--space-8);
+}
+
+.opportunities-pagination__button,
+.opportunities-pagination__page {
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: var(--font-size-sm);
+  gap: var(--space-2);
+  justify-content: center;
+  min-height: 40px;
+  padding: var(--space-2) var(--space-3);
+  transition: background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.opportunities-pagination__button:hover:not(:disabled),
+.opportunities-pagination__page:hover {
+  background: var(--color-muted);
+  border-color: var(--color-border-strong);
+}
+
+.opportunities-pagination__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.opportunities-pagination__pages {
+  align-items: center;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.opportunities-pagination__page.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+@media (max-width: 1000px) {
+  .opportunities-results-layout {
+    gap: var(--space-5);
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .opportunities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .opportunities-page__intro {
+    padding: var(--space-10) 0;
+  }
+
+  .opportunities-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .opportunities-sort {
+    justify-content: space-between;
+  }
+
+  .opportunities-sort select {
+    flex: 1;
+    max-width: 260px;
+  }
+
+  .opportunities-results-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .opportunities-filters {
+    padding: var(--space-4);
+  }
+
+  .opportunities-filters__note {
+    margin-top: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .opportunities-page__intro p {
+    font-size: var(--font-size-base);
+  }
+
+  .opportunities-pagination {
+    flex-wrap: wrap;
+  }
+
+  .opportunities-pagination__button {
+    flex: 1;
+  }
+
+  .opportunities-pagination__pages {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* Overall page spacing */
+.opportunities-page__content {
+  padding-top: 40px;
+  padding-bottom: 56px;
+}
+
+/* Give the search and sorting toolbar more breathing room */
+.opportunities-toolbar {
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.opportunities-search {
+  min-height: 54px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 0 18px;
+}
+
+.opportunities-sort {
+  gap: 12px;
+}
+
+.opportunities-sort select {
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+}
+
+/* Separate the filters panel from the results */
+.opportunities-results-layout {
+  gap: 32px;
+  align-items: start;
+}
+
+.opportunities-filters {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgb(15 23 42 / 4%);
+}
+
+/* Add clear separation between filter sections */
+.opportunities-filters__heading {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 24px;
+}
+
+.opportunities-filter-group {
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.opportunities-filter-group select {
+  min-height: 46px;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+}
+
+/* Make the results heading distinct */
+.opportunities-results__heading {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+}
+
+/* Increase the space between opportunity cards */
+.opportunities-grid {
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Give each opportunity card a clearer boundary */
+.opportunity-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgb(15 23 42 / 4%);
+  overflow: hidden;
+  min-width: 0;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.opportunity-card:hover {
+  border-color: #bbd6c3;
+  box-shadow: 0 8px 22px rgb(15 23 42 / 8%);
+  transform: translateY(-2px);
+}
+
+/* Keep the empty state visually separated */
+.opportunities-empty {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 56px 24px;
+}
+
+/* Separate pagination from the results above */
+.opportunities-pagination {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+  margin-top: 32px;
+}
+
+/* Mobile spacing */
+@media (max-width: 760px) {
+  .opportunities-page__content {
+    padding-top: 24px;
+    padding-bottom: 36px;
+  }
+
+  .opportunities-toolbar {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .opportunities-results-layout {
+    gap: 24px;
+  }
+
+  .opportunities-filters {
+    padding: 20px;
+  }
+
+  .opportunities-grid {
+    gap: 18px;
+  }
+}
+
+
+.opportunities-pagination {
+  align-items: center;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 36px;
+  padding-top: 24px;
+}
+
+.opportunities-pagination__button,
+.opportunities-pagination__page {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 8px;
+  justify-content: center;
+  min-height: 42px;
+  min-width: 42px;
+  padding: 10px 14px;
+  transition: all 180ms ease;
+}
+
+.opportunities-pagination__button:hover:not(:disabled),
+.opportunities-pagination__page:hover {
+  background: #f0fdf4;
+  border-color: #14532d;
+  color: #14532d;
+}
+
+.opportunities-pagination__button:disabled {
+  background: #f8fafc;
+  color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.opportunities-pagination__pages {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.opportunities-pagination__page.is-active {
+  background: #14532d;
+  border-color: #14532d;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.opportunities-pagination__page.is-active:hover {
+  background: #166534;
+  border-color: #166534;
+  color: #ffffff;
+}
+
+.opportunities-pagination button:focus-visible {
+  outline: 3px solid #86efac;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .opportunities-page__intro {
+    border-radius: 12px;
+    margin: 20px 12px 0;
+    padding: 32px 20px;
+  }
+
+  .opportunities-pagination {
+    gap: 12px;
+  }
+
+  .opportunities-pagination__button {
+    padding: 10px;
+  }
+}

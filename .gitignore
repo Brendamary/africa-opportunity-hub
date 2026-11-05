@@ -1,0 +1,23 @@
+# Frontend
+**/node_modules/
+**/dist/
+**/build/
+
+# Backend
+**/target/
+
+# IntelliJ
+**/.idea/
+**/*.iml
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Java
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
