@@ -214,26 +214,43 @@ The frontend and backend are currently developed as separate projects. The inten
 A possible structure is:
 
 ```text
-africa-opportunity-hub/
+AfricaOpportunityHubProject/
 │
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── data/
-│   │   ├── pages/
-│   │   ├── styles/
-│   │   └── types/
-│   └── package.json
+├── README.md
+├── .gitignore
 │
-├── backend/
+├── be-africa-opportunity-hub/
+│   ├── .mvn/
 │   ├── src/
-│   │   └── main/
-│   │       └── java/
+│   │   ├── main/
+│   │   │   ├── java/com/africaopportunityhub/
+│   │   │   │   ├── config/
+│   │   │   │   ├── controller/
+│   │   │   │   ├── dto/
+│   │   │   │   ├── model/
+│   │   │   │   ├── repository/
+│   │   │   │   ├── security/
+│   │   │   │   └── service/
+│   │   │   └── resources/
+│   │   └── test/
+│   ├── mvnw
+│   ├── mvnw.cmd
 │   └── pom.xml
 │
-├── .gitignore
-└── README.md
+└── fe-africa-opportunity-hub/
+    ├── public/
+    ├── src/
+    │   ├── assets/
+    │   ├── components/
+    │   │   ├── layouts/
+    │   │   └── opportunities/
+    │   ├── data/
+    │   ├── pages/
+    │   ├── services/
+    │   ├── styles/
+    │   └── types/
+    ├── package.json
+    └── vite.config.ts
 ```
 
 This is an illustrative structure. The actual folder names may differ depending on how the projects are arranged in the repository.
