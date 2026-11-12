@@ -51,15 +51,9 @@ public class AuthController {
         Authentication authentication;
 
         try {
-            String normalizedEmail = request.email()
-                    .trim()
-                    .toLowerCase(Locale.ROOT);
-
+            String normalizedEmail = request.email().trim().toLowerCase(Locale.ROOT);
             authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            normalizedEmail,
-                            request.password()
-                    )
+                    new UsernamePasswordAuthenticationToken(normalizedEmail, request.password())
             );
 
         } catch (AuthenticationException exception) {
@@ -69,16 +63,9 @@ public class AuthController {
             );
         }
 
-        UserDetails userDetails =
-                (UserDetails) authentication.getPrincipal();
-
-        String accessToken =
-                jwtService.generateToken(userDetails);
-
-        UserResponse user =
-                authService.getUserResponseByEmail(
-                        authentication.getName()
-                );
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String accessToken = jwtService.generateToken(userDetails);
+        UserResponse user = authService.getUserResponseByEmail(authentication.getName());
 
         return new AuthResponse(
                 "Login successful.",

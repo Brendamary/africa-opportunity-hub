@@ -15,7 +15,8 @@ public class User {
 
     public User(
             Long id,
-            String email, String fullNames,
+            String email,
+            String fullNames,
             String passwordHash,
             String role,
             LocalDateTime createdAt,

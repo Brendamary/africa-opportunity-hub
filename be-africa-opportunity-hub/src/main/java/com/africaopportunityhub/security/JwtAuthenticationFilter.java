@@ -41,20 +41,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             FilterChain filterChain
     ) throws ServletException, IOException {
 
-        String authorizationHeader =
-                request.getHeader("Authorization");
-
-        // No Bearer token: continue through the filter chain.
-        if (authorizationHeader == null
-                || !authorizationHeader.startsWith("Bearer ")) {
+        String authorizationHeader = request.getHeader("Authorization");
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
 
             filterChain.doFilter(request, response);
             return;
         }
 
-        String token = authorizationHeader
-                .substring(7)
-                .trim();
+        String token = authorizationHeader.substring(7).trim();
 
         if (token.isEmpty()) {
             filterChain.doFilter(request, response);
@@ -66,15 +60,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String username = jwtService.extractUsername(token);
 
             // Avoid replacing an authentication that already exists.
-            if (username != null
-                    && SecurityContextHolder.getContext()
-                    .getAuthentication() == null) {
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-                // Load the current user and their authorities.
-                UserDetails userDetails =
-                        userDetailsService.loadUserByUsername(username);
-
-                // Verify the token against the loaded user.
                 if (jwtService.isTokenValid(token, userDetails)) {
 
                     UsernamePasswordAuthenticationToken authentication =
@@ -90,8 +78,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     );
 
                     // Make the authenticated user available to Spring Security.
-                    SecurityContextHolder.getContext()
-                            .setAuthentication(authentication);
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }
 
@@ -99,15 +86,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                  | IllegalArgumentException
                  | UsernameNotFoundException exception) {
 
-            // Invalid token or nonexistent user.
-            // Leave the request unauthenticated.
-            logger.debug(
-                    "JWT authentication failed: {}",
-                    exception.getMessage()
-            );
+            logger.debug("JWT authentication failed: {}", exception.getMessage());
         }
 
-        // Spring Security will decide whether authentication is required.
         filterChain.doFilter(request, response);
     }
 }

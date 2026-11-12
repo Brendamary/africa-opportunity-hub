@@ -75,7 +75,6 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Adjust this origin to match your React development server.
         configuration.setAllowedOrigins(
                 List.of("http://localhost:5173")
         );
@@ -134,9 +133,10 @@ public class SecurityConfig {
 
                         .requestMatchers(
                                 HttpMethod.GET,
-                                "/api/v1/categories",
-                                "/api/v1/opportunities",
-                                "/api/v1/opportunities/**"
+                                "/api/categories",
+                                "/api/opportunities",
+                                "/api/opportunities/**",
+                                "/api/categories/**"
                         ).permitAll()
 
                         .requestMatchers(

@@ -28,29 +28,23 @@ public class AuthService {
     }
 
     public UserResponse register(RegisterRequest request) {
-        String email = request.email()
-                .trim()
-                .toLowerCase(Locale.ROOT);
+        String email = request.email().trim().toLowerCase(Locale.ROOT);
 
         if (userRepository.findByEmail(email).isPresent()) {
-            throw new ResponseStatusException(
-                    HttpStatus.CONFLICT,
-                    "An account with this email already exists."
-            );
+            throw new ResponseStatusException(HttpStatus.CONFLICT,
+                    "An account with this email already exists.");
         }
 
-        String passwordHash =
-                passwordEncoder.encode(request.password());
+        String passwordHash = passwordEncoder.encode(request.password());
 
         try {
             User user = userRepository.create(email, request.full_names(), passwordHash);
             return toUserResponse(user);
-        } catch (DuplicateKeyException exception) {
+        }
+        catch (DuplicateKeyException exception) {
             // Also handles two simultaneous registrations with the same email.
             throw new ResponseStatusException(
-                    HttpStatus.CONFLICT,
-                    "An account with this email already exists."
-            );
+                    HttpStatus.CONFLICT, "An account with this email already exists.");
         }
     }
 
@@ -70,8 +64,8 @@ public class AuthService {
         return new UserResponse(
                 user.getId(),
                 user.getEmail(),
-                user.getRole(),
                 user.getFull_names(),
+                user.getRole(),
                 user.getCreatedAt()
         );
     }

@@ -41,6 +41,8 @@ public class UserRepository {
             );
         }, email);
 
+
+
         return users.stream().findFirst();
     }
 
@@ -54,9 +56,7 @@ public class UserRepository {
 
         return findByEmail(email)
                 .orElseThrow(() ->
-                        new IllegalStateException(
-                                "User was created but could not be retrieved."
-                        )
+                        new IllegalStateException("User was created but could not be retrieved.")
                 );
     }
 }
