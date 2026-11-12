@@ -253,7 +253,7 @@ AfricaOpportunityHubProject/
     └── vite.config.ts
 ```
 
-This is an illustrative structure. The actual folder names may differ depending on how the projects are arranged in the repository.
+This is an illustrative structure. The actual folder names may differ as the project evolves.
 
 ## Getting Started
 
